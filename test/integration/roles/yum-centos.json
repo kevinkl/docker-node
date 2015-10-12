@@ -1,0 +1,24 @@
+{
+  "name": "yum-centos",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "Yum configuration and trigger on CentOS based servers",
+
+  "run_list": [
+    "recipe[yum-centos]"
+  ],
+
+  "env_run_lists": {
+    "_default": [
+
+    ]
+  },
+
+  "default_attributes": {
+
+  },
+
+  "override_attributes": {
+
+  }
+}

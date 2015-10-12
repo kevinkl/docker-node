@@ -1,0 +1,38 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+  require_chef_omnibus: latest
+  http_proxy:
+  https_proxy:
+  no_proxy:
+
+platforms:
+  - name: centos-7.1
+    driver:
+      box: kitchen/centos-7.1
+      box_url: file:///workdirs/packer/packer_builds/virtualbox/centos-7.1-x86_64/centos-7.1-x86_64_provisionerless.box
+  - name: ubuntu-14.04
+    driver:
+      box: kitchen/ubuntu-14
+      box_url: file:///workdirs/packer/packer_builds/virtualbox/ubuntu-14.04-amd64/ubuntu-14.04-amd64_provisionerless.box
+suites:
+  - name: rhel-docker
+    run_list:
+      - role[yum-centos]
+      - role[chef_node]
+      - recipe[docker-node::service]
+    attributes:
+    excludes:
+      - ubuntu-14.04
+
+  - name: debian-docker
+    run_list:
+      - role[apt]
+      - role[chef_node]
+      - recipe[docker-node::service]
+    attributes:
+    excludes:
+      - centos-7.1

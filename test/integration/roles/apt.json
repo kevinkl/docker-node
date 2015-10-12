@@ -1,0 +1,24 @@
+{
+  "name": "apt",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "Apt configuration and trigger on Ubuntu based servers",
+
+  "run_list": [
+    "recipe[apt]"
+  ],
+
+  "env_run_lists": {
+    "_default": [
+
+    ]
+  },
+
+  "default_attributes": {
+
+  },
+
+  "override_attributes": {
+
+  }
+}
