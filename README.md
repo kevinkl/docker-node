@@ -1,12 +1,12 @@
 docker-node-cookbook
 ====================
 
-This cookbook is a wrapper for the official 'docker' cookbook, installing docker according to personal needs and references. Use it as a guide to implement your own 'docker' wrapper cookbook, and use as is if you are sure it covers all your needs.
+This cookbook is a wrapper for the official 'docker' cookbook, installing docker according to personal needs and preferences. Use it as a guide to implement your own 'docker' wrapper cookbook, and use 'as is' only if you are sure it covers all your needs.
 
 Supported Platforms
 -------------------
 
-CentOS 7.1.x
+CentOS 7.1
 Ubuntu 14.04
 
 Attributes
@@ -15,14 +15,26 @@ Attributes
 Usage
 -----
 
-### docker-node::default
+### docker-node::service
 
 Include `docker-node` in your node's `run_list`:
 
 ```json
 {
   "run_list": [
-    "recipe[docker-node::default]"
+    "recipe[docker-node::service]"
+  ]
+}
+```
+
+### docker-node::registry
+
+Include `docker-node` in your node's `run_list`:
+
+```json
+{
+  "run_list": [
+    "recipe[docker-node::registry]"
   ]
 }
 ```
