@@ -4,6 +4,6 @@ maintainer_email 'gsebast@web.de'
 license          'All rights reserved'
 description      'Installs/Configures Docker components'
 long_description 'Installs/Configures docker-node'
-version          '0.1.0'
+version          '0.1.2'
 
-depends					 'docker', '>= 1.0.0'
+depends					 'docker', '~> 2.0'
