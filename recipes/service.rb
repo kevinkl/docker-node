@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: docker-node
-# Recipe:: default
+# Recipe:: service
 #
 # Copyright (C) 2015 Sebastian Gerau
 #
@@ -18,5 +18,7 @@
 #
 
 docker_service 'default' do
+  version node['docker-node']['version']
+  install_mehtod node['docker-node']['install_mehtod']
 	action [:create, :start]
 end
