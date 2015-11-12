@@ -12,6 +12,11 @@ Ubuntu 14.04
 Attributes
 ----------
 
+***default***
+
+* `['docker-node']['version']` - The version of Docker to install. *Default:* `"1.9.0"`
+* `['docker-node']['install_method']` - The method of installation: binary, package, or script. *Default:* `"package"`
+
 Usage
 -----
 
