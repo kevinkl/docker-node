@@ -17,6 +17,16 @@
 # limitations under the License.
 #
 
+# Ensuring we have offical Docker repo available 
+# for native package installation
+case node['platform']
+when 'centos'
+  include_recipe 'yum-docker'
+when 'ubuntu'
+  include_recipe 'apt-docker'
+end
+
+
 HTTP_PROXY = node['docker-node']['http_proxy']
 HTTPS_PROXY = node['docker-node']['https_proxy']
 NO_PROXY = node['docker-node']['no_proxy']
