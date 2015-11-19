@@ -17,8 +17,26 @@
 # limitations under the License.
 #
 
+HTTP_PROXY = node['docker-node']['http_proxy']
+HTTPS_PROXY = node['docker-node']['https_proxy']
+NO_PROXY = node['docker-node']['no_proxy']
+
 docker_service 'default' do
   version node['docker-node']['version']
-  install_mehtod node['docker-node']['install_mehtod']
+  install_method node['docker-node']['install_method']
+  insecure_registry node['docker-node']['insecure_registry']
+
+  unless HTTP_PROXY.empty?
+    http_proxy node['docker-node']['http_proxy']
+  end
+
+  unless HTTPS_PROXY.empty?
+    https_proxy node['docker-node']['https_proxy']
+  end
+
+  unless NO_PROXY.empty?
+    no_proxy node['docker-node']['no_proxy']
+  end
+
 	action [:create, :start]
 end
