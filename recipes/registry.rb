@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: docker-node
-# Recipe:: default
+# Recipe:: registry
 #
 # Copyright (C) 2015 Sebastian Gerau
 #
