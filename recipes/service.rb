@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-# Ensuring we have offical Docker repo available 
+# Ensuring we have offical Docker repo available
 # for native package installation
 case node['platform']
 when 'centos'
@@ -25,7 +25,6 @@ when 'centos'
 when 'ubuntu'
   include_recipe 'apt-docker'
 end
-
 
 HTTP_PROXY = node['docker-node']['http_proxy']
 HTTPS_PROXY = node['docker-node']['https_proxy']
@@ -36,17 +35,9 @@ docker_service 'default' do
   install_method node['docker-node']['install_method']
   insecure_registry node['docker-node']['insecure_registry']
 
-  unless HTTP_PROXY.empty?
-    http_proxy node['docker-node']['http_proxy']
-  end
+  unless HTTP_PROXY.empty? http_proxy node['docker-node']['http_proxy'] end
+  unless HTTPS_PROXY.empty? https_proxy node['docker-node']['https_proxy'] end
+  unless NO_PROXY.empty? no_proxy node['docker-node']['no_proxy'] end
 
-  unless HTTPS_PROXY.empty?
-    https_proxy node['docker-node']['https_proxy']
-  end
-
-  unless NO_PROXY.empty?
-    no_proxy node['docker-node']['no_proxy']
-  end
-
-	action [:create, :start]
+  action [:create, :start]
 end
