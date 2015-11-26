@@ -35,9 +35,9 @@ docker_service 'default' do
   install_method node['docker-node']['install_method']
   insecure_registry node['docker-node']['insecure_registry']
 
-  unless HTTP_PROXY.empty? http_proxy node['docker-node']['http_proxy'] end
-  unless HTTPS_PROXY.empty? https_proxy node['docker-node']['https_proxy'] end
-  unless NO_PROXY.empty? no_proxy node['docker-node']['no_proxy'] end
+  unless HTTP_PROXY.empty? http_proxy node['docker-node']['http_proxy']
+  unless HTTPS_PROXY.empty? https_proxy node['docker-node']['https_proxy']
+  unless NO_PROXY.empty? no_proxy node['docker-node']['no_proxy']
 
   action [:create, :start]
 end
