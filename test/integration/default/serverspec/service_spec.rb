@@ -4,7 +4,6 @@ require 'serverspec'
 set :backend, :exec
 
 describe 'Docker Daemon' do
-
   it 'should be enabled' do
     expect(service('docker')).to be_enabled
   end

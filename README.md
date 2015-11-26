@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gsebast/docker-node.svg)](https://travis-ci.org/gsebast/docker-node)
+
 docker-node-cookbook
 ====================
 
