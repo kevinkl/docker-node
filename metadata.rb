@@ -1,7 +1,7 @@
 name 'docker-node'
 maintainer 'Sebastian Gerau'
 maintainer_email 'gsebast@web.de'
-license 'All rights reserved'
+license 'Apache 2.0'
 description 'Installs/Configures Docker components'
 long_description 'Installs/Configures docker-node'
 version '0.1.4'
