@@ -8,7 +8,7 @@ This cookbook is a wrapper for the official 'docker' cookbook, installing docker
 Supported Platforms
 -------------------
 
-CentOS 7.1
+CentOS 7.2
 Ubuntu 14.04
 
 Attributes
