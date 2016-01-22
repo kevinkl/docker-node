@@ -9,24 +9,26 @@ provisioner:
   https_proxy:
   no_proxy:
 
+verifier:
+  name: inspec
+
 platforms:
-  - name: centos-7.1
+  - name: centos-7
     driver:
-      box: centos71
-      box_url: file:///workdirs/packer/packer_builds/virtualbox/centos-7.1-x86_64/centos-7.1-x86_64_provisionerless.box
+      box: centos72
+      box_url: file:///workdirs/packer/packer_builds/virtualbox/centos-7.2/centos-7.2-x86_64.box
   - name: ubuntu-14.04
     driver:
       box: ubuntu1404
-      box_url: file:///workdirs/packer/packer_builds/virtualbox/ubuntu-14.04-amd64/ubuntu-14.04-amd64_provisionerless.box
+      box_url: file:///workdirs/packer/packer_builds/virtualbox/ubuntu-14.04/ubuntu-14.04-amd64.box
+
 suites:
   - name: rhel_docker-latest
     run_list:
-      - role[yum-centos]
-      - role[chef_node]
       - recipe[docker-node::service]
     attributes:
       docker-node:
-        version: '1.9.0'
+        version: '1.9.1'
         install_method: 'package'
         insecure_registry: nil
         http_proxy: ''
@@ -37,8 +39,6 @@ suites:
 
   - name: rhel_docker-1.8.3
     run_list:
-      - role[yum-centos]
-      - role[chef_node]
       - recipe[docker-node::service]
     attributes:
       docker-node:
@@ -53,24 +53,20 @@ suites:
 
   - name: debian-docker
     run_list:
-      - role[apt]
-      - role[chef_node]
       - recipe[docker-node::service]
     attributes:
       docker-node:
-        version: '1.9.0'
+        version: '1.9.1'
         install_method: 'package'
         insecure_registy: nil
         http_proxy: ''
         https_proxy: ''
         no_proxy: ''
     excludes:
-      - centos-7.1
+      - centos-7
 
   - name: debian-docker
     run_list:
-      - role[apt]
-      - role[chef_node]
       - recipe[docker-node::service]
     attributes:
       docker-node:
@@ -81,4 +77,4 @@ suites:
         https_proxy: ''
         no_proxy: ''
     excludes:
-      - centos-7.1
+      - centos-7
