@@ -1,5 +1,6 @@
 # Use Travis's cointainer based infrastructure
-sudo: false
+sudo: required
+
 addons:
   apt:
     sources:
@@ -14,9 +15,12 @@ branches:
   only:
     - master
 
-# Ensure we make ChefDK's Ruby the default
 before_script:
+  # Ensure ChefDK's Ruby is the default
   - eval "$(/opt/chefdk/bin/chef shell-init bash)"
+  # Install chef-sugar for ChefSpec
+  - /opt/chefdk/embedded/bin/chef gem install chef-sugar
+
 script:
   - /opt/chefdk/embedded/bin/chef --version
   - /opt/chefdk/embedded/bin/rubocop --version
