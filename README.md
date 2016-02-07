@@ -16,7 +16,7 @@ Attributes
 
 ***default***
 
-* `['docker-node']['version']` - The version of Docker to install. *Default:* `"1.9.0"`
+* `['docker-node']['version']` - The version of Docker to install. *Default:* `"1.9.1"`
 * `['docker-node']['install_method']` - The method of installation: binary, package, or script. *Default:* `"package"`
 * `['docker-node']['insecure_registry']` - A insecure private docker registry to use. *Default:* `nil`
 * `['docker-node']['http_proxy']` - HTTP proxy. *Default:* `""`
