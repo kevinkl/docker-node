@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-default['docker-node']['version'] = '1.10.2'
+default['docker-node']['version'] = '1.10.3'
 default['docker-node']['install_method'] = 'package'
 default['docker-node']['insecure_registry'] = nil
 default['docker-node']['http_proxy'] = ''

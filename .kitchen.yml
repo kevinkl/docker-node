@@ -13,7 +13,7 @@ verifier:
   name: inspec
 
 platforms:
-  - name: centos-7
+  - name: centos-7.2
     driver:
       box: centos72
       box_url: file:///workdirs/packer/packer_builds/virtualbox/centos-7.2/centos-7.2-x86_64.box
@@ -28,7 +28,7 @@ suites:
       - recipe[docker-node::service]
     attributes:
       docker-node:
-        version: '1.9.1'
+        version: '1.10.3'
         install_method: 'package'
         insecure_registry: nil
         http_proxy: ''
@@ -37,40 +37,12 @@ suites:
     excludes:
       - ubuntu-14.04
 
-  - name: rhel_docker-1.8.3
-    run_list:
-      - recipe[docker-node::service]
-    attributes:
-      docker-node:
-        version: '1.8.3'
-        install_method: 'package'
-        insecure_registy: nil
-        http_proxy: ''
-        https_proxy: ''
-        no_proxy: ''
-    excludes:
-      - ubuntu-14.04
-
   - name: debian-docker
     run_list:
       - recipe[docker-node::service]
     attributes:
       docker-node:
-        version: '1.9.1'
-        install_method: 'package'
-        insecure_registy: nil
-        http_proxy: ''
-        https_proxy: ''
-        no_proxy: ''
-    excludes:
-      - centos-7
-
-  - name: debian-docker
-    run_list:
-      - recipe[docker-node::service]
-    attributes:
-      docker-node:
-        version: '1.8.3'
+        version: '1.10.3'
         install_method: 'package'
         insecure_registy: nil
         http_proxy: ''
