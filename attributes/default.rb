@@ -24,5 +24,5 @@ default['docker-node']['http_proxy'] = ''
 default['docker-node']['https_proxy'] = ''
 default['docker-node']['no_proxy'] = ''
 
-defautl['docker-node']['registry']['tag'] = '2.4.0'
-defautl['docker-node']['registry']['port'] = 5000
+default['docker-node']['registry']['tag'] = '2.4.0'
+default['docker-node']['registry']['port'] = 5000
