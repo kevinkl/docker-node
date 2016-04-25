@@ -8,20 +8,22 @@ This cookbook is a wrapper for the official 'docker' cookbook, installing docker
 Supported Platforms
 -------------------
 
-CentOS 7.2
-Ubuntu 14.04
+* CentOS 7.2
+* Ubuntu 14.04
 
 Attributes
 ----------
 
 ***default***
 
-* `['docker-node']['version']` - The version of Docker to install. *Default:* `"1.9.1"`
-* `['docker-node']['install_method']` - The method of installation: binary, package, or script. *Default:* `"package"`
-* `['docker-node']['insecure_registry']` - A insecure private docker registry to use. *Default:* `nil`
-* `['docker-node']['http_proxy']` - HTTP proxy. *Default:* `""`
-* `['docker-node']['https_proxy']` - HTTPS proxy. *Default:* `""`
-* `['docker-node']['no_proxy']` - Comma separated string of domains/IPs to exclude from proxying. *Default:* `""`
+* `['docker-node']['docker']['version']` - The version of Docker to install. *Default:* `"1.11.0"`
+* `['docker-node']['docker']['install_method']` - The method of installation: binary, package, or script. *Default:* `"package"`
+* `['docker-node']['docker']['daemon']['insecure_registry']` - A insecure private docker registry to use. *Default:* `nil`
+* `['docker-node']['docker']['daemon']['http_proxy']` - HTTP proxy. *Default:* `""`
+* `['docker-node']['docker']['daemon']['https_proxy']` - HTTPS proxy. *Default:* `""`
+* `['docker-node']['docker']['daemon']['no_proxy']` - Comma separated string of domains/IPs to exclude from proxying. *Default:* `""`
+* `['docker-node']['docker']['registry']['tag']` - The tag version of the Docker Registry to use. *Default:* `"2.4.0"`
+* `['docker-node']['docker']['registry']['port']` - The port for connecting to the Docker Registry [API]. *Default:* `"5000"`
 
 Usage
 -----
