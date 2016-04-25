@@ -16,3 +16,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+docker_image 'registry' do
+  tag node['docker-node']['docker']['registry']['tag']
+  action :pull_if_missing
+end
+
+docker_container 'registry' do
+  tag node['docker-node']['docker']['registry']['tag']
+  port node['docker-node']['docker']['registry']['port']
+  action :run
+end
