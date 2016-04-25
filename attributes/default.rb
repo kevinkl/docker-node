@@ -17,12 +17,13 @@
 # limitations under the License.
 #
 
-default['docker-node']['version'] = '1.11.0'
-default['docker-node']['install_method'] = 'package'
-default['docker-node']['insecure_registry'] = nil
-default['docker-node']['http_proxy'] = ''
-default['docker-node']['https_proxy'] = ''
-default['docker-node']['no_proxy'] = ''
+default['docker-node']['docker']['version'] = '1.11.0'
+default['docker-node']['docker']['install_method'] = 'package'
 
-default['docker-node']['registry']['tag'] = '2.4.0'
-default['docker-node']['registry']['port'] = '5000'
+default['docker-node']['docker']['daemon']['insecure_registry'] = nil
+default['docker-node']['docker']['daemon']['http_proxy'] = ''
+default['docker-node']['docker']['daemon']['https_proxy'] = ''
+default['docker-node']['docker']['daemon']['no_proxy'] = ''
+
+default['docker-node']['docker']['registry']['tag'] = '2.4.0'
+default['docker-node']['docker']['registry']['port'] = '5000'

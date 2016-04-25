@@ -26,18 +26,26 @@ when 'ubuntu'
   include_recipe 'apt-docker'
 end
 
-HTTP_PROXY = node['docker-node']['http_proxy']
-HTTPS_PROXY = node['docker-node']['https_proxy']
-NO_PROXY = node['docker-node']['no_proxy']
+HTTP_PROXY = node['docker-node']['docker']['daemon']['http_proxy']
+HTTPS_PROXY = node['docker-node']['docker']['daemon']['https_proxy']
+NO_PROXY = node['docker-node']['docker']['daemon']['no_proxy']
 
 docker_service 'default' do
-  version node['docker-node']['version']
-  install_method node['docker-node']['install_method']
-  insecure_registry node['docker-node']['insecure_registry']
+  version node['docker-node']['docker']['version']
+  install_method node['docker-node']['docker']['install_method']
 
-  http_proxy node['docker-node']['http_proxy'] unless HTTP_PROXY.empty?
-  https_proxy node['docker-node']['https_proxy'] unless HTTPS_PROXY.empty?
-  no_proxy node['docker-node']['no_proxy'] unless NO_PROXY.empty?
+  host ['tcp://127.0.0.1:2375', 'unix:///var/run/docker.sock']
+  insecure_registry \
+    '{#node[:docker-node][:docker][:daemon][:insecure_registry]}:' \
+    '{#node[:docker-node][:docker][:registry][:port]}' unless \
+    node['docker-node']['docker']['daemon']['insecure_registry'].nil?
+
+  http_proxy node['docker-node']['docker']['daemon']['http_proxy'] unless \
+    HTTP_PROXY.empty?
+  https_proxy node['docker-node']['docker']['daemon']['https_proxy'] unless \
+    HTTPS_PROXY.empty?
+  no_proxy node['docker-node']['docker']['daemon']['no_proxy'] unless \
+    NO_PROXY.empty?
 
   action [:create, :start]
 end
